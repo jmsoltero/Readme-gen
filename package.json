@@ -1,0 +1,22 @@
+{
+  "name": "readme-gen",
+  "version": "1.0.0",
+  "description": "a program designed to generate readme files based on user input",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jmsoltero/Readme-gen.git"
+  },
+  "author": "jose manuel soltero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmsoltero/Readme-gen/issues"
+  },
+  "homepage": "https://github.com/jmsoltero/Readme-gen#readme",
+  "dependencies": {
+    "inquirer": "^9.1.4"
+  }
+}
