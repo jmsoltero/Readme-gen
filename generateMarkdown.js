@@ -18,3 +18,12 @@ function generateMarkdown(data) {
 }
 
 module.exports = generateMarkdown;
+
+const variables = [
+  1,
+  2,
+  3
+]
+
+
+console.log(variables[0])
