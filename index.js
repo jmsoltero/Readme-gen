@@ -4,7 +4,7 @@
 const inquirer = require('inquirer');
 //import inquirer from 'inquirer';
 //const fs = require('fs');
-//const getMarkdown = reui(generateMarkdown)
+const generateMarkdown = 'generateMarkdown.js'
 
 
 
@@ -77,7 +77,18 @@ const questions = [ {
 
 
 // TODO: Create a function to write README file
-//function writeToFile(fileName, data) {}
+const writeToFile = (fileStuff) => {
+    return new Promise((resolve, reject) => {
+        if (err) {
+            reject(err);
+            return;
+        }
+        resolve({
+            ok: true,
+            message: 'file created'
+        });
+    });
+};
 
 // TODO: Create a function to initialize app
 function init() {
@@ -88,8 +99,20 @@ function init() {
     })
 }
 
-init();
 
 
 // Function call to initialize app
-//init();
+init()
+.then(markdownData => {
+    console.log(markdownData);
+    return generateMarkdown(markdownData);
+})
+.then(pageMD => {
+    writeToFile(pageMD);
+})
+.then(writeToFileResponse => {
+    console.log(writeToFileResponse.message);
+})
+.catch(err => {
+    console.log(err);
+})
