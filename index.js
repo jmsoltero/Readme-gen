@@ -43,11 +43,11 @@ const questions = [ {
     default: ""
 },
 {
-    type: 'input',
+    type: 'list',
     name: 'license',
     message: "Choose your license, if any",
-    choices: ['MIT','Apache','Artistic','none'],
-    default: 'none'
+    choices: ['mit','unilicense','apache','agpl'],
+    default: ''
 },
 {
     type: 'input',
@@ -76,29 +76,21 @@ const questions = [ {
 ]
 
 
-// TODO: Create a function to write README file
-const writeFile = fileContent => {
-    return new Promise((resolve, reject) => {
-        fs.writeFile('generated-README.md', fileContent, err => {
-            if (err) {
-                reject(err);
-                return;
-            }
 
-            resolve({
-                ok: true,
-                message: 'File created!'
-            });
+// TODO: Create a function to write README file
+const writeFile = readmeContent => {
+        fs.writeFile('your-gen-readme.md', readmeContent, function (err){
+            if (err) throw err; 
+                console.log('Your README has been generated')
         });
-    });
 }
 
 // TODO: Create a function to initialize app
 function init() {
     return inquirer.prompt(questions)
-    .then(markdownData => {
-        console.log(markdownData);
-        return markdownData
+    .then(answers => {
+        console.log(answers);
+        return answers
     })
 }
 
@@ -106,15 +98,12 @@ function init() {
 
 // Function call to initialize app
 init()
-.then(readmeData => {
-    console.log(readmeData);
-    return generateMarkdown(readmeData);
+.then(answers => {
+    console.log(answers);
+    return generateMarkdown(answers);
 })
 .then(pageMD => {
     return writeFile(pageMD);
-})
-.then(writeFileResponse => {
-    console.log(writeFileResponse.message);
 })
 .catch(err => {
     console.log(err);
