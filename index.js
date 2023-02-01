@@ -27,12 +27,6 @@ const questions = [ {
 },
 {
     type: 'input',
-    name: 'toc',
-    message: "Include table of contents?",
-    default: ""
-},
-{
-    type: 'input',
     name: 'installation',
     message: "Instructions for installation",
     default: ""

@@ -22,3 +22,6 @@ to generate a readme file
 ## contributing 
 feel free to contribute clone cote and work off an alternate branch and push it for review
 
+## tutorial video
+
+[tutorial]https://drive.google.com/file/d/1jAUa6HTlvEeIEK1mUxV9E44yzdmMOwv_/view
